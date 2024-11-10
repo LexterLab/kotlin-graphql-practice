@@ -14,4 +14,11 @@ open class BaseController {
             { operationOutput -> ResponseEntity(operationOutput, status) }
         )
     }
+
+    fun  handleOutput(output: Either<ErrorWrapper, OperationOutput>) : Any {
+        return output.fold(
+            { errorOutput -> errorOutput },
+            { operationOutput -> operationOutput}
+        )
+    }
 }

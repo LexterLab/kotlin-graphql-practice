@@ -1,0 +1,52 @@
+type Query {
+    getCartoon(cartoonId: String): GetCartoonResult
+}
+
+
+type Mutation {
+    createCartoon(input: AddCartoonInput!): CreateBookResult
+    updateCartoon(input: UpdateCartoonInput!): UpdateCartoonResult
+}
+
+
+union CreateBookResult = AddCartoonOutput | ErrorWrapper
+union UpdateCartoonResult = UpdateCartoonOutput | ErrorWrapper
+union GetCartoonResult = GetCartoonOutput | ErrorWrapper
+
+input AddCartoonInput {
+    name: String!
+}
+
+type GetCartoonOutput {
+    name: String
+}
+
+type AddCartoonOutput {
+    id: String
+}
+
+
+input UpdateCartoonInput {
+    name: String!
+}
+
+type UpdateCartoonOutput {
+    name: String
+}
+
+
+type ErrorWrapper {
+    errors: [Error!]!
+    status: HttpStatus!
+}
+
+type Error {
+    message: String!
+    field: String
+}
+
+enum HttpStatus {
+    OK
+    BAD_REQUEST
+    CREATED
+}
