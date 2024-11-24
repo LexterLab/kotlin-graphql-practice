@@ -33,12 +33,14 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.graphql:spring-graphql-test")
+    testImplementation ("org.springframework.graphql:spring-graphql-test:1.3.3")
     testImplementation("org.springframework:spring-webflux")
     runtimeOnly("org.postgresql:postgresql")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
     implementation("io.arrow-kt:arrow-core:1.2.4")
     implementation("io.arrow-kt:arrow-fx-coroutines:1.2.4")
     implementation("org.springframework.boot:spring-boot-starter-aop:3.3.5")
+
 
 }
 
